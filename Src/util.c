@@ -864,6 +864,7 @@ void readInputRaw(void) {
       #else
         input1[inIdx].raw = commandL.steer;
         input2[inIdx].raw = commandL.speed;
+        buzzerFreq = commandL.buzzerFreq;
       #endif
     }
     #endif
@@ -878,6 +879,7 @@ void readInputRaw(void) {
       #else
         input1[inIdx].raw = commandR.steer;
         input2[inIdx].raw = commandR.speed;
+        buzzerFreq = commandR.buzzerFreq;
       #endif
     }
     #endif
