@@ -77,13 +77,13 @@ void setup()
 }
 
 // ########################## SEND ##########################
-void Send(int16_t uSteer, int16_t uSpeed)
+void Send(int16_t uSteer, int16_t uSpeed, uint8_t uBuzzerFreq = 0)
 {
   // Create command
   Command.start    = (uint16_t)START_FRAME;
   Command.steer    = (int16_t)uSteer;
   Command.speed    = (int16_t)uSpeed;
-  Command.checksum = (uint16_t)(Command.start ^ Command.steer ^ Command.speed);
+  Command.checksum = (uint16_t)(Command.start ^ Command.steer ^ Command.speed ^ Command.buzzerFreq);
 
   // Write to Serial
   HoverSerial.write((uint8_t *) &Command, sizeof(Command)); 
